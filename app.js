@@ -19,25 +19,26 @@ dotenv.config();
 
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-    console.log("Connected to DB");
+  console.log("Connected to DB");
 })
 
 //Swagger-------------------------
 const options = {
-    definition: {
-        openapi: "3.0.0",
-        info: {
-            title: "DCX Developer Directory API",
-            version: "1.0.0",
-            description: "This is a simple DCX Developer API made with Express and documented with Swagger",
-        },
-        servers: [
-            {
-                url: `http://localhost:${process.env.PORT || 3001}/`,
-            },
-        ],
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "DCX Developer Directory API",
+      version: "1.0.0",
+      description: "This is a simple DCX Developer API made with Express and documented with Swagger",
     },
-    apis: ["./api-docs/apis.js"],
+    servers: [
+      {
+        // url: `http://localhost:${process.env.PORT || 3001}/`
+        url: `https://dcx-developer-directory.netlify.app`,
+      },
+    ],
+  },
+  apis: ["./api-docs/apis.js"],
 };
 
 const specs = swaggerJsDoc(options)
@@ -55,7 +56,7 @@ app.use('/api/verify', verifyRoute);
 app.use('/api/contact', contactRoute);
 
 app.get('/', (req, res) => {
-    res.send('Welcome! This is the DCX Developer Directory App')
+  res.send('Welcome! This is the DCX Developer Directory App')
 })
 
 app.listen(process.env.PORT || 3001, () => console.log(`Server is running at ${process.env.PORT || 3001}`))
