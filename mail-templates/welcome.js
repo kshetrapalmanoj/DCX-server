@@ -11,7 +11,6 @@ var template = (name) => `
       }
     </style>
   </head>
-
   <body
     marginheight="0"
     topmargin="0"
@@ -113,9 +112,8 @@ var template = (name) => `
                         of all the members. We are all happy and excited about
                         your suggestions and contribution to our community.
                       </p>
-
                       <a
-                        href="http://localhost:3000/browse"
+                        href="https://dcx-developer-directory.netlify.app/browse"
                         style="
                           background: #20e277;
                           text-decoration: none !important;
@@ -138,7 +136,6 @@ var template = (name) => `
                 </table>
               </td>
             </tr>
-
             <tr>
               <td style="height: 20px">&nbsp;</td>
             </tr>
